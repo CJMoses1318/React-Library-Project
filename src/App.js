@@ -7,7 +7,7 @@ import { books } from "./data";
 import BookInfo from "./pages/Bookinfo";
 import Cart from "./pages/Cart";
 import React, { useEffect, useState } from "react";
-import changeQuantity from "./pages/Cart";
+// import changeQuantity from "./pages/Cart";
 
 function App() {
   const [cart, setCart] = useState([]);

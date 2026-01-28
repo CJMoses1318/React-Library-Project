@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { books as book } from "../data";
+// import React, { useState, useEffect } from "react";
+// import { books as book } from "../data";
 import EmptyCart from "../assets/empty_cart.svg"
 import { Link } from "react-router-dom";
 

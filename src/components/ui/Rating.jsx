@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { books as rating } from "../../data.js";
+// import { books as rating } from "../../data.js";
 
 const Rating = ({ rating }) => {
   return (
