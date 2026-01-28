@@ -3,28 +3,18 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
 import Price from "./Price";
-import useRef from "react";
-
+ 
 const Book = ({ book }) => {
   const [img, setImg] = useState();
-
-  const mountedRef = useRef(true);
-
   useEffect(() => {
     const image = new Image();
     image.src = book.url;
     image.onload = () => {
       setTimeout(() => {
-        if (mountedRef.current) {
-          setImg(image);
-        }
+        setImg(book.url);
       }, 300);
     };
-    return () => {
-      mountedRef.current = false;
-    }
-  })
-
+  }, [book.url])
   return (
     <div className="book">
       {img ? (
@@ -32,7 +22,7 @@ const Book = ({ book }) => {
           <Link to={`/books/${book.id}`}>
             <figure className="book__img--wrapper">
               <img
-                src={img.src}
+                src={img}
                 alt=""
                 className="book__img"
               />

@@ -2,7 +2,7 @@ import React from 'react'
 import UndrawBooks from '../assets/Undraw_Books.svg'
 import { Link } from 'react-router-dom'
 
-export default function Landing() {
+const Landing = () => {
   return (
     <section id="landing">
         <header>
@@ -20,5 +20,7 @@ export default function Landing() {
             </div>
         </header>
     </section>
-  )
+  );
 }
+
+export default Landing; 

@@ -51,17 +51,17 @@ function App() {
       <div className="App">
         <Nav numberOfItems={numberOfItems()} />
         <Routes>
-          <Route path="/" component={Home} />
-          <Route path="/books" render={() => <Books books={books} />} />
+          <Route path="/" exact element={<Home />} />
+          <Route path="/books" exact element={ <Books books={books} />} />
           <Route
-            path="/books:id"
-            render={ () =>
+            path="/books/:id"
+            element={ 
               <BookInfo books={books} addToCart={addToCart} cart={cart} />
             }
           />
           <Route
             path="/cart"
-            render={ () =>
+            element={ 
               <Cart
                 books={books}
                 cart={cart}
@@ -71,6 +71,7 @@ function App() {
             }
           />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

@@ -1,7 +1,7 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import LibraryLogo from '../assets/Library.svg';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LibraryLogo from "../assets/Library.svg";
+import { Link } from "react-router-dom";
 
 const Nav = ({ numberofItems }) => {
     function openMenu() {
@@ -26,7 +26,7 @@ const Nav = ({ numberofItems }) => {
                     </li>
                     <li className='nav__list'>
                         <Link to="/books" className='nav__link'>
-                            Body
+                            Books
                         </Link>
                     </li>
                     <button className="btn__menu" onClick={openMenu}>
