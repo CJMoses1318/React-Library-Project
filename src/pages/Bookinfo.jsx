@@ -4,9 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import Rating from "../components/ui/Rating";
 import Price from "../components/ui/Price";
 import Book from "../components/ui/Book";
-import { books as cart } from "../data.js";
 
-const BookInfo = ({ books, addToCart }) => {
+const BookInfo = ({ books, addToCart, cart }) => {
   const { id } = useParams();
   const book = books.find((book) => +book.id === +id);
 
@@ -15,9 +14,10 @@ const BookInfo = ({ books, addToCart }) => {
   }
 
   function bookExistsOnCart() {
-    return cart.find(book => book.id === +id);
+    return cart.find((book) => book.id === +id);
   }
 
+  console.log(id);
   return (
     <div id="books__body">
       <main id="books__main">
@@ -27,7 +27,7 @@ const BookInfo = ({ books, addToCart }) => {
               <Link to="/books" className="book__link">
                 <FontAwesomeIcon icon="arrow-left" />
               </Link>
-              <Link to="/book" className="book__link">
+              <Link to="/books" className="book__link">
                 <h2 className="book__selected--title--top">Books</h2>
               </Link>
             </div>
@@ -59,15 +59,15 @@ const BookInfo = ({ books, addToCart }) => {
                     aspernatur. Similique doloremque excepturi quae at incidunt?
                   </p>
                 </div>
-                { bookExistsOnCart(book) ? ( 
-                  <Link to={`/cart`} className="book__link"> 
-                  <button className="btn">Checkout</button>
+                {bookExistsOnCart() ? (
+                  <Link to="/cart" className="book__link">
+                    <button className="btn">Checkout</button>
                   </Link>
-                   ) : (
-                <button className="btn" onClick={() => addBookToCart(book)}>
-                  Add to Cart
+                ) : (
+                  <button className="btn" onClick={() => addBookToCart(book)}>
+                    Add to Cart
                   </button>
-                   )}
+                )}
               </div>
             </div>
           </div>
@@ -79,11 +79,12 @@ const BookInfo = ({ books, addToCart }) => {
               <h2 className="book__selected--title--top">Recommended Books</h2>
             </div>
             <div className="books">
-            {books
-            .filter((book) => book.rating === 5 && +book.id !== +id)
-            .slice(0, 4)
-            .map(book => <Book book={book} key={book.id} />)
-            }
+              {books
+                .filter((book) => book.rating === 5 && +book.id !== +id)
+                .slice(0, 4)
+                .map((book) => (
+                  <Book book={book} key={book.id} />
+                ))}
             </div>
           </div>
         </div>

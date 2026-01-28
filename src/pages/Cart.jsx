@@ -7,10 +7,10 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
   const total = () => {
     let price = 0;
     cart.forEach((item) => {
-      price += +(item.salePrice || item.originalPrice * item.quantity);
+      price += +((item.salePrice || item.originalPrice) * item.quantity);
     });
     return price;
-  };
+};
   return (
     <div id="books__body">
       <main id="books__main">
@@ -87,7 +87,7 @@ const Cart = ({ cart, changeQuantity, removeItem }) => {
               <div className="total">
               <div className="total__item total__sub-total">
                 <span>Subtotal</span>
-                <span>${total() * (0.9).toFixed(2)}</span>
+                <span>${(total() * 0.9).toFixed(2)}</span>
               </div>
               <div className="total__item total__tax">
                 <span>Tax</span>

@@ -51,17 +51,17 @@ function App() {
       <div className="App">
         <Nav numberOfItems={numberOfItems()} />
         <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/books" exact element={ <Books books={books} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/books" element={ <Books books={books} />} />
           <Route
             path="/books/:id"
-            element={ 
+            element={
               <BookInfo books={books} addToCart={addToCart} cart={cart} />
             }
           />
           <Route
             path="/cart"
-            element={ 
+            element={
               <Cart
                 books={books}
                 cart={cart}
